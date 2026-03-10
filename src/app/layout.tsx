@@ -28,7 +28,8 @@ export default function RootLayout({
       <body className={`${workSans.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="dark"
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange={false}
         >
           <LenisProvider>
