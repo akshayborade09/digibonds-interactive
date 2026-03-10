@@ -36,12 +36,12 @@ export function Footer() {
         {/* Bottom — regulatory text */}
         <div className="flex flex-col gap-2.5 text-center text-sm leading-relaxed text-gray-500">
           <p>
-            SEBI Registration No. : INZ000296636 | BSE Member ID:6746 | NSE
-            Member ID: 90329
+            SEBI Registration No. : INZ000XXXXXX | BSE Member ID:XXXX | NSE
+            Member ID: XXXXX
           </p>
           <p>
-            All rights are reserved by Launchpad Fintech Private Limited having
-            its brand name BondsIndia, its associates and group Companies.
+            All rights are reserved by DigiBonds Technologies Private Limited,
+            its associates and group companies.
           </p>
           <p>&copy; 2026 DigiBonds Pvt Ltd</p>
         </div>
