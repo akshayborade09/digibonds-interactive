@@ -1,26 +1,257 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/typography";
 
+/* ─── Design tokens via Tailwind v4 @theme ─── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gray-50:  #FAFAFC;
+  --color-gray-100: #F2F3F5;
+  --color-gray-200: #D9DADE;
+  --color-gray-300: #B0B2B9;
+  --color-gray-400: #858895;
+  --color-gray-500: #666A7B;
+  --color-gray-600: #434759;
+  --color-gray-700: #2D3142;
+  --color-gray-800: #1E2130;
+
+  --color-teal-900: #00453B;
+  --color-teal-600: #067A69;
+  --color-teal-400: #09C28A;
+
+  --color-yellow: #FFE066;
+
+  --font-sans: "Work Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── CSS Custom Properties — Light (default) ─── */
+:root {
+  --bg-primary:   #FFFFFF;
+  --bg-secondary: #FAFAFC;
+  --text-primary: #1E2130;
+  --text-muted:   #666A7B;
+  --border:       #D9DADE;
+  --accent:       #09C28A;
+  --accent-dark:  #067A69;
+  --accent-deep:  #00453B;
+  --yellow:       #FFE066;
+}
+
+/* ─── CSS Custom Properties — Dark ─── */
+[data-theme="dark"] {
+  --bg-primary:   #1E2130;
+  --bg-secondary: #2D3142;
+  --text-primary: #FAFAFC;
+  --text-muted:   #B0B2B9;
+  --border:       #434759;
+  --accent:       #09C28A;
+  --accent-dark:  #067A69;
+  --accent-deep:  #00453B;
+  --yellow:       #FFE066;
+}
+
+/* ─── Base styles ─── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+body,
+nav,
+section,
+footer,
+[data-theme] {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ─── Adaptive desktop layout ───
+   Sections go full-width (backgrounds fill viewport).
+   .section-container constrains the CONTENT to 80% of the viewport,
+   leaving 10% space on each side, and stays centered.
+*/
+.section-container {
+  width: 80%;
+  max-width: 1536px; /* 80% of 1920 — locks content width on large screens */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Dot sequence animation ───
+   6 phases over the loop: in-1, in-2, in-3, out-1, out-2, out-3
+   Each phase = 1/6 ≈ 16.67% of the total duration.
+*/
+@keyframes dot-seq-1 {
+  0%       { transform: scale(0); }
+  16.67%   { transform: scale(1); }
+  /* stay visible until out-1 starts */
+  50%      { transform: scale(1); }
+  66.67%   { transform: scale(0); }
+  100%     { transform: scale(0); }
+}
+@keyframes dot-seq-2 {
+  0%       { transform: scale(0); }
+  16.67%   { transform: scale(0); }
+  33.33%   { transform: scale(1); }
+  /* stay visible until out-2 starts */
+  66.67%   { transform: scale(1); }
+  83.33%   { transform: scale(0); }
+  100%     { transform: scale(0); }
+}
+@keyframes dot-seq-3 {
+  0%       { transform: scale(0); }
+  33.33%   { transform: scale(0); }
+  50%      { transform: scale(1); }
+  /* stay visible until out-3 starts */
+  83.33%   { transform: scale(1); }
+  100%     { transform: scale(0); }
+}
+.dot-seq-1 { animation: dot-seq-1 2s ease-in infinite; }
+.dot-seq-2 { animation: dot-seq-2 2s ease-in infinite; }
+.dot-seq-3 { animation: dot-seq-3 2s ease-in infinite; }
+
+/* ─── Growth line draw animation ─── */
+@keyframes draw-line {
+  0%   { stroke-dashoffset: 600; opacity: 1; }
+  60%  { stroke-dashoffset: 0;   opacity: 1; }
+  80%  { stroke-dashoffset: 0;   opacity: 0; }
+  81%  { stroke-dashoffset: 600; opacity: 0; }
+  100% { stroke-dashoffset: 600; opacity: 0; }
+}
+.growth-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw-line 3s ease-in-out infinite;
+}
+
+/* ─── Sparkle pulse animations ─── */
+@keyframes sparkle-a {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(0); opacity: 0; }
+}
+@keyframes sparkle-b {
+  0%, 100% { transform: scale(0); opacity: 0; }
+  50%      { transform: scale(1); opacity: 1; }
+}
+.sparkle-a { animation: sparkle-a 1.5s ease-in-out infinite; }
+.sparkle-b { animation: sparkle-b 1.5s ease-in-out infinite; }
+
+/* ─── Custom range slider ─── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #09C28A;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(9, 194, 138, 0.3);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #09C28A;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(9, 194, 138, 0.3);
+  cursor: pointer;
+}
+
+/* ─── Golden slider (Smart Allocation) ─── */
+input[type="range"].sa-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 16px;
+  outline: none;
+}
+
+input[type="range"].sa-slider::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 16px;
+  border-radius: 9999px;
+}
+
+input[type="range"].sa-slider::-moz-range-track {
+  background: transparent;
+  height: 16px;
+  border-radius: 9999px;
+}
+
+input[type="range"].sa-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FDCA00;
+  border: none;
+
+  cursor: pointer;
+  margin-top: -14px;
+}
+
+input[type="range"].sa-slider::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FDCA00;
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── Marquee auto-scroll (Google Reviews) ─── */
+@keyframes marquee-rtl {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-ltr {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-row-rtl {
+  animation: marquee-rtl 40s linear infinite;
+}
+.marquee-row-ltr {
+  animation: marquee-ltr 40s linear infinite;
+}
+.marquee-row-rtl:hover,
+.marquee-row-ltr:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Scrollbar for horizontal card scrolls ─── */
+.snap-x::-webkit-scrollbar {
+  height: 4px;
+}
+
+.snap-x::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.snap-x::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+
+.snap-x::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }

@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 26.4146 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="india-flag">
+<rect width="26.4146" height="18" fill="white"/>
+<path id="Rectangle 2" fill-rule="evenodd" clip-rule="evenodd" d="M0 6H26.4146V0H0V6Z" fill="var(--fill-0, #FFA44A)"/>
+<path id="Rectangle 2_2" fill-rule="evenodd" clip-rule="evenodd" d="M0 18H26.4146V12H0V18Z" fill="var(--fill-0, #1A9F0B)"/>
+<path id="Oval 1" d="M13.2061 6.86719C14.4172 6.86719 15.4257 7.80727 15.4258 9C15.4258 10.1928 14.4172 11.1338 13.2061 11.1338C11.9949 11.1338 10.9863 10.1928 10.9863 9C10.9864 7.80729 11.995 6.86721 13.2061 6.86719Z" fill="var(--fill-0, #181A93)" fill-opacity="0.15" stroke="var(--stroke-0, #181A93)" stroke-width="0.666667"/>
+<path id="Oval 8" fill-rule="evenodd" clip-rule="evenodd" d="M13.208 9.5999C13.5554 9.5999 13.8369 9.33127 13.8369 8.9999C13.8369 8.66853 13.5554 8.3999 13.208 8.3999C12.8607 8.3999 12.5791 8.66853 12.5791 8.9999C12.5791 9.33127 12.8607 9.5999 13.208 9.5999Z" fill="var(--fill-0, #181A93)"/>
+</g>
+</svg>
