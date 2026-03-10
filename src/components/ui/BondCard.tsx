@@ -106,22 +106,22 @@ export function BondCard({
 
         <div className="flex items-center justify-between py-1">
           <div className="flex flex-col gap-1.5">
-            <p className="text-sm text-gray-400">Min inv</p>
-            <p className="text-sm font-semibold tracking-tight text-gray-700">
+            <p className="text-xs text-gray-400">Min inv</p>
+            <p className="text-xs font-semibold tracking-tight text-gray-700">
               {minInvestment}
             </p>
           </div>
           <div className="h-8 w-px bg-gray-200" />
           <div className="flex flex-col gap-1.5">
-            <p className="text-sm text-gray-400">Tenure</p>
-            <p className="text-sm font-semibold tracking-tight text-gray-700">
+            <p className="text-xs text-gray-400">Tenure</p>
+            <p className="text-xs font-semibold tracking-tight text-gray-700">
               {tenure}
             </p>
           </div>
           <div className="h-8 w-px bg-gray-200" />
           <div className="flex flex-col gap-1.5">
-            <p className="text-sm text-gray-400">Payout</p>
-            <p className="text-sm font-semibold tracking-tight text-gray-700">
+            <p className="text-xs text-gray-400">Payout</p>
+            <p className="text-xs font-semibold tracking-tight text-gray-700">
               {payout}
             </p>
           </div>
