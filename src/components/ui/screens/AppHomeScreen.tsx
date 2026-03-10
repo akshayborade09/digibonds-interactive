@@ -5,9 +5,12 @@ export function AppHomeScreen() {
     <div className="flex h-full flex-col bg-[#eafdb4]">
       {/* Title area */}
       <div className="mt-16 flex flex-col items-center gap-1.5 px-6 pt-10">
-        <p className="text-center text-2xl font-semibold tracking-tight text-[#00453b]">
-          digibonds
-        </p>
+        <Image
+          src="/assets/digibonds-logo.svg"
+          alt="digibonds"
+          width={130}
+          height={34}
+        />
         <div className="text-center text-4xl font-extrabold italic leading-[1.15] tracking-tight">
           <p className="bg-gradient-to-b from-[#00ca87] to-[#008257] bg-clip-text text-transparent">
             Access bonds

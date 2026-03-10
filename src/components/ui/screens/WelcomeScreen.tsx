@@ -8,13 +8,16 @@ export const WelcomeScreen = forwardRef<HTMLDivElement>((_, ref) => {
         alt=""
         className="welcome-check-img h-24 w-24"
       />
-      <div className="welcome-text mt-6 flex flex-col items-center gap-px text-center">
+      <div className="welcome-text mt-6 flex flex-col items-center gap-2 text-center">
         <p className="text-xl font-semibold leading-[1.2] tracking-tight text-[#00453b]">
           Welcome to
         </p>
-        <p className="text-[32px] font-semibold leading-[1.2] tracking-tight text-[#00453b]">
-          digibonds
-        </p>
+        <img
+          src="/assets/digibonds-logo.svg"
+          alt="digibonds"
+          width={160}
+          height={42}
+        />
       </div>
     </div>
   );
