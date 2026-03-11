@@ -162,12 +162,19 @@ export function FAQ() {
             ))}
           </div>
 
-          {/* Right — Video placeholder */}
+          {/* Right — Video thumbnail */}
           <div className="faq-video hidden w-1/2 lg:block">
-            <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg bg-black">
-              <button className="flex h-[54px] w-[54px] items-center justify-center rounded-full border-2 border-white/30 text-white transition-colors hover:border-white/60">
+            <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg">
+              <Image
+                src="/assets/video-thumbnail.png"
+                alt="DigiBonds — Access bonds up to 15% p.a."
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 z-[1] bg-black/10" />
+              <button className="relative z-10 flex h-[54px] w-[54px] items-center justify-center rounded-full bg-teal-900 text-white transition-colors hover:bg-white hover:text-teal-900">
                 <svg
-                  className="ml-0.5 h-6 w-6"
+                  className="ml-0.5 h-8 w-8 rounded-md"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

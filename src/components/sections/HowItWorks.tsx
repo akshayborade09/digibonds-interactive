@@ -111,29 +111,9 @@ export function HowItWorks() {
 
   const goToStep = useCallback(
     (index: number, duration: number) => {
-      if (index === 0) {
-        if (progressTweenRef.current) progressTweenRef.current.kill();
-        isAnimatingRef.current = false;
-        activeStepRef.current = 0;
-        setActiveStep(0);
-
-        progressRefs.current.forEach((bar) => {
-          if (bar) gsap.set(bar, { scaleX: 0 });
-        });
-
-        requestAnimationFrame(() => {
-          const card = cardRef.current;
-          if (card) {
-            const items = card.querySelectorAll(".step-anim-item");
-            gsap.set(items, { opacity: 1, y: 0 });
-          }
-          startProgressBar(0, duration);
-        });
-      } else {
-        animateStep(index, duration);
-      }
+      animateStep(index, duration);
     },
-    [startProgressBar, animateStep]
+    [animateStep]
   );
 
   const handlePhoneComplete = useCallback(() => {
@@ -349,7 +329,7 @@ export function HowItWorks() {
         start: "top 80%",
         once: true,
         onEnter: () => {
-          goToStep(0, 6);
+          startProgressBar(0, 6);
           phoneRef.current?.play();
         },
       });
@@ -359,7 +339,7 @@ export function HowItWorks() {
       ctx.revert();
       if (progressTweenRef.current) progressTweenRef.current.kill();
     };
-  }, [goToStep]);
+  }, [startProgressBar]);
 
   const step = STEPS[activeStep];
 
